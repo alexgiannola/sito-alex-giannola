@@ -1,5 +1,5 @@
 /* ============================================================
-   GLOBAL SCRIPT
+   GLOBAL SCRIPT — Alex Giannola
    ============================================================ */
 
 // Navbar scroll effect
@@ -42,7 +42,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 /* ============================================================
-   CALCOLATORE
+   CALCOLATORE con input formattato italiano
    ============================================================ */
 const calcForm = document.querySelector('#calc-form');
 if (calcForm) {
@@ -59,7 +59,7 @@ if (calcForm) {
   const gainAdvisor = document.querySelector('#gain-advisor');
   const gainBank = document.querySelector('#gain-bank');
 
-  let frequency = 'monthly'; // monthly | weekly | daily
+  let frequency = 'monthly'; // monthly | semestral | annual
 
   freqBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -69,8 +69,45 @@ if (calcForm) {
     });
   });
 
+  // FORMATTAZIONE INPUT IT: 10000 -> 10.000
+  function formatItalian(value) {
+    if (value === '' || value === null || value === undefined) return '';
+    const num = typeof value === 'number' ? value : parseInt(value.toString().replace(/\./g, ''), 10);
+    if (isNaN(num)) return '';
+    return num.toLocaleString('it-IT');
+  }
+  function parseItalian(str) {
+    if (!str) return 0;
+    const cleaned = str.toString().replace(/\./g, '').replace(/[^\d]/g, '');
+    return parseInt(cleaned, 10) || 0;
+  }
+
+  // Applica formattazione live sugli input numerici di capitale/versamento
+  [startInput, investInput].forEach(input => {
+    // Format initial value
+    const initial = input.dataset.value || input.value;
+    if (initial) input.value = formatItalian(parseItalian(initial));
+
+    input.addEventListener('input', (e) => {
+      const caretPos = e.target.selectionStart;
+      const oldLen = e.target.value.length;
+      const raw = parseItalian(e.target.value);
+      e.target.value = formatItalian(raw);
+      const newLen = e.target.value.length;
+      // Aggiusta posizione cursore dopo reformatting
+      const diff = newLen - oldLen;
+      e.target.setSelectionRange(caretPos + diff, caretPos + diff);
+    });
+
+    // Previeni inserimento caratteri non numerici
+    input.addEventListener('keydown', (e) => {
+      const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Home', 'End'];
+      if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+      if (!/^\d$/.test(e.key)) e.preventDefault();
+    });
+  });
+
   // Formula: FV = P*(1+r)^n + PMT * [((1+r)^n - 1)/r]
-  // r = tasso periodico, n = numero periodi
   function futureValue(principal, contribution, annualRate, years, periodsPerYear) {
     const r = annualRate / periodsPerYear;
     const n = years * periodsPerYear;
@@ -103,21 +140,21 @@ if (calcForm) {
   }
 
   function calculate() {
-    const principal = Math.max(0, parseFloat(startInput.value) || 0);
-    const contribution = Math.max(0, parseFloat(investInput.value) || 0);
+    const principal = Math.max(0, parseItalian(startInput.value));
+    const contribution = Math.max(0, parseItalian(investInput.value));
     const years = Math.max(1, Math.min(50, parseInt(yearsInput.value) || 1));
 
-    const periodsMap = { monthly: 12, weekly: 52, daily: 365 };
-    const periods = periodsMap[frequency];
+    // Frequenze: monthly=12, semestral=2, annual=1
+    const periodsMap = { monthly: 12, semestral: 2, annual: 1 };
+    const periods = periodsMap[frequency] || 12;
 
-    // Tassi
+    // Tassi interni (NON mostrati all'utente)
     const fvStrategy = futureValue(principal, contribution, 0.12, years, periods);
     const fvAdvisor = futureValue(principal, contribution, 0.07, years, periods);
     const fvBank = futureValue(principal, contribution, 0.04, years, periods);
 
     const totalInvested = principal + contribution * periods * years;
 
-    // Animate
     animateNumber(resultStrategy, 0, fvStrategy);
     animateNumber(resultAdvisor, 0, fvAdvisor);
     animateNumber(resultBank, 0, fvBank);
@@ -126,7 +163,6 @@ if (calcForm) {
     gainAdvisor.textContent = `+${formatEuro(fvAdvisor - totalInvested)} di rendimento`;
     gainBank.textContent = `+${formatEuro(fvBank - totalInvested)} di rendimento`;
 
-    // Reveal results
     document.querySelector('.calc-results').classList.add('visible');
   }
 
@@ -142,7 +178,7 @@ if (calcForm) {
 }
 
 /* ============================================================
-   COUNTER ANIMATION (stats)
+   COUNTER ANIMATION
    ============================================================ */
 const counters = document.querySelectorAll('[data-counter]');
 if (counters.length) {
@@ -151,6 +187,7 @@ if (counters.length) {
       if (entry.isIntersecting) {
         const el = entry.target;
         const target = parseFloat(el.dataset.counter);
+        const prefix = el.dataset.prefix || '';
         const suffix = el.dataset.suffix || '';
         const duration = 1600;
         const start = performance.now();
@@ -158,7 +195,10 @@ if (counters.length) {
         function step(now) {
           const t = Math.min((now - start) / duration, 1);
           const value = target * ease(t);
-          el.textContent = (Number.isInteger(target) ? Math.round(value) : value.toFixed(1)) + suffix;
+          const displayValue = Number.isInteger(target)
+            ? Math.round(value).toLocaleString('it-IT')
+            : value.toFixed(1);
+          el.textContent = prefix + displayValue + suffix;
           if (t < 1) requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
