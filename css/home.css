@@ -1,15 +1,12 @@
 /* ============================================================
-   HOMEPAGE v2
+   HOMEPAGE v3
    ============================================================ */
 
-/* ============================================================
-   HERO con foto
-   ============================================================ */
+/* HERO con foto */
 .hero {
-  padding: 120px 0 60px;
+  padding: 110px 0 60px;
   position: relative;
   overflow: hidden;
-  min-height: auto;
 }
 .hero-bg {
   position: absolute;
@@ -36,11 +33,16 @@
   display: grid;
   grid-template-columns: 1.25fr 0.85fr;
   gap: 60px;
-  align-items: center;
+  align-items: start;
+  padding-top: 20px;
   min-height: 70vh;
 }
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; min-height: auto; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; min-height: auto; padding-top: 0; }
+}
+
+.hero-text {
+  padding-top: 20px;
 }
 
 .hero-title {
@@ -54,6 +56,12 @@
   font-style: italic;
   color: var(--deep-crimson);
   font-weight: 300;
+}
+.hero-title .hero-dot {
+  font-size: 0.7em;
+  vertical-align: baseline;
+  color: var(--deep-space-blue);
+  margin-left: -2px;
 }
 
 .hero-lead {
@@ -70,15 +78,16 @@
   flex-wrap: wrap;
 }
 
-/* Foto nella hero */
+/* Foto hero alzata con animazione slide */
 .hero-photo-wrap {
   position: relative;
   justify-self: end;
   width: 100%;
   max-width: 440px;
+  margin-top: -20px;
 }
 @media (max-width: 900px) {
-  .hero-photo-wrap { justify-self: center; max-width: 360px; }
+  .hero-photo-wrap { justify-self: center; max-width: 360px; margin-top: 0; }
 }
 .hero-photo {
   aspect-ratio: 4/5;
@@ -120,9 +129,7 @@
   border-radius: 50%;
 }
 
-/* ============================================================
-   KPI STRIP
-   ============================================================ */
+/* KPI STRIP */
 .kpi-strip {
   padding: 50px 0;
   border-top: 1px solid var(--hairline);
@@ -156,9 +163,7 @@
   letter-spacing: 0.02em;
 }
 
-/* ============================================================
-   PROBLEMA
-   ============================================================ */
+/* PROBLEMA */
 .problem {
   padding: 70px 0;
 }
@@ -183,9 +188,7 @@
   margin-top: 24px;
 }
 
-/* ============================================================
-   TABELLA DIFFERENZA
-   ============================================================ */
+/* TABELLA DIFFERENZA */
 .difference {
   background: var(--deep-space-blue);
   color: var(--platinum);
@@ -194,7 +197,6 @@
 .section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
 .difference h2 { color: var(--platinum); }
 
-/* DESKTOP table */
 .compare-table {
   background: rgba(240, 237, 238, 0.03);
   border: 1px solid rgba(240, 237, 238, 0.12);
@@ -244,7 +246,6 @@
 }
 .compare-row strong { color: var(--platinum); }
 
-/* MOBILE — cards (nascoste su desktop) */
 .compare-mobile { display: none; }
 
 @media (max-width: 780px) {
@@ -266,13 +267,8 @@
   .compare-card.bank-card {
     background: rgba(240, 237, 238, 0.03);
   }
-  .compare-card .compare-tag {
-    margin-bottom: 20px;
-  }
-  .compare-list {
-    display: flex;
-    flex-direction: column;
-  }
+  .compare-card .compare-tag { margin-bottom: 20px; }
+  .compare-list { display: flex; flex-direction: column; }
   .compare-list li {
     padding: 14px 0;
     border-bottom: 1px solid rgba(240, 237, 238, 0.08);
@@ -293,9 +289,7 @@
     font-size: 14px;
     font-weight: 500;
   }
-  .compare-card.indep-card .compare-list li strong {
-    font-weight: 700;
-  }
+  .compare-card.indep-card .compare-list li strong { font-weight: 700; }
 }
 
 .table-footnote {
@@ -308,11 +302,10 @@
   padding-left: 16px;
 }
 
-/* ============================================================
-   ABOUT
-   ============================================================ */
+/* ABOUT homepage */
 .about {
   padding: 70px 0;
+  scroll-margin-top: 100px;
 }
 .about-grid {
   display: grid;
@@ -414,11 +407,10 @@
 }
 .tl-content p strong { color: var(--deep-space-blue); }
 
-/* ============================================================
-   METODO
-   ============================================================ */
+/* METODO */
 .method {
   padding: 70px 0;
+  scroll-margin-top: 100px;
 }
 .method-grid {
   display: grid;
@@ -450,16 +442,12 @@
   font-weight: 300;
 }
 
-/* ============================================================
-   FILOSOFIA con simbolo >
-   ============================================================ */
+/* FILOSOFIA */
 .philosophy {
   background: var(--deep-space-blue);
   color: var(--platinum);
 }
-.philo-list {
-  list-style: none;
-}
+.philo-list { list-style: none; }
 .philo-list li {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -501,16 +489,20 @@
   max-width: 66ch;
 }
 
-/* ============================================================
-   CALCOLATORE
-   ============================================================ */
+/* CALCOLATORE — titolo su una riga a schermo largo, compatto su mobile */
 .calculator {
   padding: 70px 0;
+  scroll-margin-top: 100px;
 }
 .calc-head {
   text-align: center;
-  max-width: 820px;
+  max-width: 920px;
   margin: 0 auto 50px;
+  padding: 0 10px;
+}
+.calc-head h2 {
+  font-size: clamp(1.7rem, 3.2vw, 2.8rem);
+  line-height: 1.1;
 }
 .calc-head h2 em {
   color: var(--deep-crimson);
@@ -521,6 +513,11 @@
   max-width: 66ch;
   margin-left: auto;
   margin-right: auto;
+}
+/* Mobile: riduco significativamente il font del titolo calcolatore */
+@media (max-width: 600px) {
+  .calc-head h2 { font-size: 1.55rem; line-height: 1.2; }
+  .calc-head .lead { font-size: 15px; }
 }
 
 .calc-shell {
@@ -659,9 +656,7 @@
   position: relative;
   transition: all 0.3s;
 }
-.result-card:hover {
-  background: rgba(240, 237, 238, 0.08);
-}
+.result-card:hover { background: rgba(240, 237, 238, 0.08); }
 .result-head {
   display: flex;
   gap: 14px;
@@ -707,9 +702,7 @@
   color: var(--firebrick-red);
   font-size: clamp(2.2rem, 4.3vw, 3.2rem);
 }
-.result-strategy .result-gain {
-  color: rgba(240, 237, 238, 0.85);
-}
+.result-strategy .result-gain { color: rgba(240, 237, 238, 0.85); }
 .result-badge {
   position: absolute;
   top: -10px;
@@ -735,9 +728,7 @@
   border-radius: 0 4px 4px 0;
 }
 
-/* ============================================================
-   ECOSISTEMA
-   ============================================================ */
+/* ECOSISTEMA nella home */
 .ecosystem-cta {
   padding: 70px 0;
   border-top: 1px solid var(--hairline);
@@ -820,7 +811,7 @@
 }
 .eco-card:hover .eco-arrow { transform: translate(4px, -4px); }
 
-/* Avtonoma block */
+/* AVTONOMA — Percorso 1:1 armonizzato */
 .eco-avtonoma {
   display: grid;
   grid-template-columns: 1.2fr auto;
@@ -829,16 +820,15 @@
   background: var(--deep-space-blue);
   color: var(--platinum);
   border-radius: 8px;
-  padding: 46px 56px;
+  padding: 40px 48px;
   position: relative;
   overflow: hidden;
 }
 @media (max-width: 780px) {
   .eco-avtonoma {
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 36px 30px;
-    text-align: left;
+    gap: 24px;
+    padding: 32px 28px;
   }
 }
 .eco-avt-label {
@@ -847,13 +837,14 @@
   text-transform: uppercase;
   color: var(--firebrick-red);
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .eco-avtonoma h3 {
   color: var(--platinum);
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
-  margin-bottom: 18px;
-  line-height: 1.15;
+  font-size: clamp(1.3rem, 2.3vw, 1.8rem);
+  margin-bottom: 14px;
+  line-height: 1.2;
+  max-width: 22ch;
 }
 .eco-avtonoma h3 em {
   font-style: italic;
@@ -862,15 +853,15 @@
 }
 .eco-avtonoma p {
   color: rgba(240, 237, 238, 0.78);
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.55;
+  max-width: 58ch;
 }
 .eco-avtonoma p strong { color: var(--platinum); }
+.eco-avt-btn { align-self: center; }
 
-/* ============================================================
-   BLOG TEASER
-   ============================================================ */
+/* BLOG TEASER */
 .blog-teaser {
   padding: 70px 0;
   border-top: 1px solid var(--hairline);
@@ -923,9 +914,7 @@
 }
 .blog-card:hover .blog-read { color: var(--firebrick-red); }
 
-/* ============================================================
-   FINAL CTA
-   ============================================================ */
+/* FINAL CTA */
 .final-cta {
   text-align: center;
   position: relative;

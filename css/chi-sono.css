@@ -1,9 +1,9 @@
 /* ============================================================
-   CHI SONO v2
+   CHI SONO v3
    ============================================================ */
 
 .about-hero {
-  padding: 140px 0 70px;
+  padding: 130px 0 70px;
   position: relative;
   overflow: hidden;
 }
@@ -137,11 +137,13 @@
   max-width: 24ch;
   font-weight: 300;
 }
+.stat-desc strong {
+  color: var(--deep-crimson);
+  font-weight: 700;
+}
 
 /* STORIA */
-.story {
-  padding: 70px 0;
-}
+.story { padding: 70px 0; }
 .story-body {
   font-size: 17px;
   line-height: 1.75;
@@ -194,9 +196,7 @@
 }
 
 /* COME LAVORO */
-.how-work {
-  background: var(--deep-space-blue);
-}
+.how-work { background: var(--deep-space-blue); }
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -218,10 +218,7 @@
   color: var(--firebrick-red);
   margin-bottom: 22px;
 }
-.work-item h3 {
-  color: var(--platinum);
-  margin-bottom: 14px;
-}
+.work-item h3 { color: var(--platinum); margin-bottom: 14px; }
 .work-item p {
   color: rgba(240, 237, 238, 0.72);
   font-weight: 300;
@@ -230,9 +227,7 @@
 }
 
 /* MANIFESTO */
-.manifesto {
-  padding: 70px 0;
-}
+.manifesto { padding: 70px 0; }
 .manifesto-list {
   display: flex;
   flex-direction: column;

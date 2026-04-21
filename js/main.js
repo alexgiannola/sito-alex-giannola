@@ -1,5 +1,5 @@
 /* ============================================================
-   GLOBAL SCRIPT — Alex Giannola
+   GLOBAL SCRIPT v3 — Alex Giannola
    ============================================================ */
 
 // Navbar scroll effect
@@ -13,23 +13,57 @@ if (nav) {
   onScroll();
 }
 
-// Mobile nav toggle
+// MOBILE NAV — apri, chiudi, backdrop, pulsante chiudi esplicito
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
+
 if (navToggle && navLinks) {
+  // Crea backdrop dinamicamente
+  const backdrop = document.createElement('div');
+  backdrop.className = 'nav-backdrop';
+  document.body.appendChild(backdrop);
+
+  // Crea pulsante CHIUDI dentro il drawer
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'nav-close';
+  closeBtn.setAttribute('aria-label', 'Chiudi menu');
+  closeBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Chiudi';
+  navLinks.insertBefore(closeBtn, navLinks.firstChild);
+
+  const openMenu = () => {
+    navToggle.classList.add('active');
+    navLinks.classList.add('open');
+    backdrop.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeMenu = () => {
+    navToggle.classList.remove('active');
+    navLinks.classList.remove('open');
+    backdrop.classList.remove('visible');
+    document.body.style.overflow = '';
+  };
+
   navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navLinks.classList.toggle('open');
+    if (navLinks.classList.contains('open')) closeMenu();
+    else openMenu();
   });
+
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+
+  // Chiudi cliccando su link di navigazione (ma non sul bottone chiudi stesso)
   navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navToggle.classList.remove('active');
-      navLinks.classList.remove('open');
-    });
+    a.addEventListener('click', closeMenu);
+  });
+
+  // Chiudi con ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) closeMenu();
   });
 }
 
-// Reveal on scroll
+// REVEAL ON SCROLL (standard + slide-right)
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -39,10 +73,10 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal, .reveal-slide-right').forEach(el => revealObserver.observe(el));
 
 /* ============================================================
-   CALCOLATORE con input formattato italiano
+   CALCOLATORE
    ============================================================ */
 const calcForm = document.querySelector('#calc-form');
 if (calcForm) {
@@ -59,7 +93,7 @@ if (calcForm) {
   const gainAdvisor = document.querySelector('#gain-advisor');
   const gainBank = document.querySelector('#gain-bank');
 
-  let frequency = 'monthly'; // monthly | semestral | annual
+  let frequency = 'monthly';
 
   freqBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -69,7 +103,6 @@ if (calcForm) {
     });
   });
 
-  // FORMATTAZIONE INPUT IT: 10000 -> 10.000
   function formatItalian(value) {
     if (value === '' || value === null || value === undefined) return '';
     const num = typeof value === 'number' ? value : parseInt(value.toString().replace(/\./g, ''), 10);
@@ -82,9 +115,7 @@ if (calcForm) {
     return parseInt(cleaned, 10) || 0;
   }
 
-  // Applica formattazione live sugli input numerici di capitale/versamento
   [startInput, investInput].forEach(input => {
-    // Format initial value
     const initial = input.dataset.value || input.value;
     if (initial) input.value = formatItalian(parseItalian(initial));
 
@@ -94,12 +125,10 @@ if (calcForm) {
       const raw = parseItalian(e.target.value);
       e.target.value = formatItalian(raw);
       const newLen = e.target.value.length;
-      // Aggiusta posizione cursore dopo reformatting
       const diff = newLen - oldLen;
       e.target.setSelectionRange(caretPos + diff, caretPos + diff);
     });
 
-    // Previeni inserimento caratteri non numerici
     input.addEventListener('keydown', (e) => {
       const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Home', 'End'];
       if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
@@ -107,7 +136,6 @@ if (calcForm) {
     });
   });
 
-  // Formula: FV = P*(1+r)^n + PMT * [((1+r)^n - 1)/r]
   function futureValue(principal, contribution, annualRate, years, periodsPerYear) {
     const r = annualRate / periodsPerYear;
     const n = years * periodsPerYear;
@@ -144,11 +172,9 @@ if (calcForm) {
     const contribution = Math.max(0, parseItalian(investInput.value));
     const years = Math.max(1, Math.min(50, parseInt(yearsInput.value) || 1));
 
-    // Frequenze: monthly=12, semestral=2, annual=1
     const periodsMap = { monthly: 12, semestral: 2, annual: 1 };
     const periods = periodsMap[frequency] || 12;
 
-    // Tassi interni (NON mostrati all'utente)
     const fvStrategy = futureValue(principal, contribution, 0.12, years, periods);
     const fvAdvisor = futureValue(principal, contribution, 0.07, years, periods);
     const fvBank = futureValue(principal, contribution, 0.04, years, periods);
@@ -177,9 +203,7 @@ if (calcForm) {
   });
 }
 
-/* ============================================================
-   COUNTER ANIMATION
-   ============================================================ */
+/* COUNTER ANIMATION */
 const counters = document.querySelectorAll('[data-counter]');
 if (counters.length) {
   const counterObserver = new IntersectionObserver((entries) => {

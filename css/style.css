@@ -1,39 +1,29 @@
 /* ============================================================
-   DESIGN SYSTEM — Alex Giannola
-   Brand: Deep Space Blue + Deep Crimson (accent) + Firebrick (CTA) + Platinum
-   Font: Ubuntu (body) + Cormorant Garamond (logo/display)
+   DESIGN SYSTEM v3 — Alex Giannola
    ============================================================ */
 
 :root {
-  /* Palette brand */
   --deep-space-blue: #003459;
   --platinum: #F0EDEE;
   --firebrick-red: #DF2935;
   --deep-crimson: #721817;
   --silver: #C0C0C0;
 
-  /* Derivati */
   --ink: #001826;
   --ink-soft: rgba(0, 52, 89, 0.72);
   --ink-muted: rgba(0, 52, 89, 0.54);
   --hairline: rgba(0, 52, 89, 0.14);
   --hairline-strong: rgba(0, 52, 89, 0.28);
 
-  /* Tipografia */
   --font-body: 'Ubuntu', system-ui, sans-serif;
   --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
 
-  /* Spaziature */
   --container: min(1280px, 92vw);
   --container-narrow: min(880px, 92vw);
 
-  /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ============================================================
-   RESET
-   ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -54,9 +44,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 input { font: inherit; }
 ul, ol { list-style: none; }
 
-/* ============================================================
-   TYPOGRAPHY
-   ============================================================ */
+/* TYPOGRAPHY */
 .eyebrow {
   font-size: 12px;
   font-weight: 500;
@@ -104,22 +92,12 @@ mark {
   padding: 0 2px;
 }
 
-/* ============================================================
-   LAYOUT
-   ============================================================ */
+/* LAYOUT */
 .container { width: var(--container); margin: 0 auto; }
 .container-narrow { width: var(--container-narrow); margin: 0 auto; }
 section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
 
-.divider-rule {
-  height: 1px;
-  background: var(--hairline);
-  width: 100%;
-}
-
-/* ============================================================
-   NAVBAR — logo serif
-   ============================================================ */
+/* NAVBAR v3 */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -146,6 +124,8 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   flex-direction: column;
   line-height: 1;
   letter-spacing: 0;
+  z-index: 102;
+  position: relative;
 }
 .logo-name {
   font-family: var(--font-serif);
@@ -173,38 +153,45 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 28px;
 }
-.nav-links a {
+.nav-links > li > a {
   font-size: 14px;
   font-weight: 500;
   color: var(--ink-soft);
   transition: color 0.2s;
   position: relative;
 }
-.nav-links a:hover { color: var(--deep-space-blue); }
+.nav-links > li > a:hover { color: var(--deep-space-blue); }
 .nav-links a.cta-link {
   background: var(--deep-space-blue);
   color: var(--platinum);
-  padding: 10px 20px;
+  padding: 10px 18px;
   border-radius: 999px;
   transition: all 0.2s var(--ease-out);
+  font-size: 13px;
+  white-space: nowrap;
 }
 .nav-links a.cta-link:hover {
   background: var(--firebrick-red);
   transform: translateY(-1px);
 }
 
+/* Hamburger */
 .nav-toggle {
   display: none;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
+  z-index: 102;
+  position: relative;
 }
 .nav-toggle span {
   display: block;
+  width: 22px;
   height: 2px;
   background: var(--deep-space-blue);
   transition: transform 0.3s, opacity 0.3s;
@@ -213,30 +200,74 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Pulsante chiudi menu (visibile dentro il drawer) */
+.nav-close {
+  display: none;
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  background: transparent;
+  color: var(--deep-space-blue);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 999px;
+  transition: all 0.2s;
+  z-index: 103;
+}
+.nav-close:hover {
+  background: var(--deep-space-blue);
+  color: var(--platinum);
+  border-color: var(--deep-space-blue);
+}
+
 @media (max-width: 980px) {
   .nav-toggle { display: flex; }
   .nav-links {
     position: fixed;
     top: 0; right: 0;
-    width: min(320px, 80vw);
-    height: 100vh;
+    width: min(340px, 88vw);
+    height: 100dvh;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    gap: 28px;
-    padding: 0 40px;
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 90px 36px 40px;
     background: var(--platinum);
     border-left: 1px solid var(--hairline);
     transform: translateX(100%);
     transition: transform 0.4s var(--ease-out);
+    overflow-y: auto;
+    box-shadow: -20px 0 40px -20px rgba(0,0,0,0.1);
   }
   .nav-links.open { transform: translateX(0); }
-  .nav-links a { font-size: 20px; }
+  .nav-links > li > a { font-size: 20px; }
+  .nav-links a.cta-link {
+    font-size: 14px;
+    padding: 14px 22px;
+    margin-top: 10px;
+  }
+  .nav-links.open .nav-close { display: inline-flex; align-items: center; gap: 8px; }
+  /* Overlay backdrop */
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 24, 38, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 99;
+  }
+  .nav-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
-/* ============================================================
-   BUTTONS
-   ============================================================ */
+/* BUTTONS */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -250,6 +281,7 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   transition: all 0.25s var(--ease-out);
   border: 1px solid transparent;
   cursor: pointer;
+  white-space: nowrap;
 }
 .btn-primary {
   background: var(--firebrick-red);
@@ -277,22 +309,19 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   background: var(--firebrick-red);
   transform: translateY(-2px);
 }
-.btn .arrow {
-  transition: transform 0.25s var(--ease-out);
-}
+.btn .arrow { transition: transform 0.25s var(--ease-out); }
 .btn:hover .arrow { transform: translateX(4px); }
 .btn-light {
   color: var(--platinum);
   border-color: var(--platinum);
+  background: transparent;
 }
 .btn-light:hover {
   background: var(--platinum);
   color: var(--deep-space-blue);
 }
 
-/* ============================================================
-   REVEAL ON SCROLL
-   ============================================================ */
+/* REVEAL ON SCROLL */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -303,9 +332,26 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   transform: translateY(0);
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* Slide-in da destra (desktop) / dal basso (mobile) per foto hero */
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal-slide-right.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (max-width: 900px) {
+  .reveal-slide-right {
+    transform: translateY(30px);
+  }
+  .reveal-slide-right.in {
+    transform: translateY(0);
+  }
+}
+
+/* FOOTER */
 .footer {
   background: var(--deep-space-blue);
   color: var(--platinum);
@@ -362,9 +408,7 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   opacity: 0.55;
 }
 
-/* ============================================================
-   UTILITY
-   ============================================================ */
+/* UTILITY */
 .text-crimson { color: var(--deep-crimson); }
 .text-red { color: var(--firebrick-red); }
 .bg-dark { background: var(--deep-space-blue); color: var(--platinum); }
