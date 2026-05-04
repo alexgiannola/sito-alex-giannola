@@ -320,6 +320,21 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   background: var(--platinum);
   color: var(--deep-space-blue);
 }
+.btn-whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+}
+.btn-whatsapp:hover {
+  background: #1DA851;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -10px rgba(37, 211, 102, 0.5);
+}
+.btn-whatsapp .wa-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
 
 /* REVEAL ON SCROLL */
 .reveal {
@@ -406,6 +421,54 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   flex-wrap: wrap;
   font-size: 12px;
   opacity: 0.55;
+}
+
+/* Footer CTA block (WhatsApp + Calendly + Email) */
+.footer-cta-block {
+  background: rgba(240, 237, 238, 0.04);
+  border: 1px solid rgba(240, 237, 238, 0.1);
+  border-radius: 8px;
+  padding: 28px 32px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.footer-cta-text {
+  flex: 1;
+  min-width: 240px;
+}
+.footer-cta-text h3 {
+  color: var(--platinum);
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.footer-cta-text p {
+  color: rgba(240, 237, 238, 0.7);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.footer-cta-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.footer-cta-buttons .btn {
+  padding: 13px 22px;
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .footer-cta-block {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+  .footer-cta-buttons { width: 100%; }
+  .footer-cta-buttons .btn { flex: 1; min-width: 140px; justify-content: center; }
 }
 
 /* UTILITY */
