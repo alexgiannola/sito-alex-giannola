@@ -1,5 +1,5 @@
 /* ============================================================
-   DESIGN SYSTEM v3 â€” Alex Giannola
+   DESIGN SYSTEM v3 — Alex Giannola
    ============================================================ */
 
 :root {
@@ -814,6 +814,40 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   line-height: 1.05;
 }
 .lp-avtonoma h2 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--firebrick-red);
+}
+
+/* Logo Avtonoma con fade-up animazione */
+.lp-avt-logo {
+  height: clamp(58px, 7vw, 90px);
+  width: auto;
+  display: block;
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: avtFadeUp 1s var(--ease-out) forwards;
+  animation-delay: 0.1s;
+}
+@keyframes avtFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.lp-avt-tagline {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  margin-bottom: 28px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--platinum);
+}
+.lp-avt-tagline em {
   font-style: italic;
   font-weight: 300;
   color: var(--firebrick-red);
