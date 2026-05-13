@@ -1,5 +1,5 @@
 /* ============================================================
-   DESIGN SYSTEM v3 — Alex Giannola
+   DESIGN SYSTEM v3 â€” Alex Giannola
    ============================================================ */
 
 :root {
@@ -575,6 +575,16 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   gap: 14px;
   flex-wrap: wrap;
 }
+@media (max-width: 600px) {
+  .lp-hero-ctas { gap: 10px; }
+  .lp-hero-ctas .btn {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 18px;
+    font-size: 14px;
+    justify-content: center;
+  }
+}
 .lp-hero-photo-wrap {
   position: relative;
   justify-self: end;
@@ -618,6 +628,23 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   background: var(--deep-crimson);
   border-radius: 50%;
 }
+.lp-hero-photo-caption {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--deep-crimson);
+  line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .lp-hero-photo-caption {
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+}
 
 /* BIO */
 .lp-bio {
@@ -639,13 +666,16 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
 .lp-bio-body .lead { margin-bottom: 24px; }
 .lp-bio-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   margin-top: 36px;
   padding-top: 32px;
   border-top: 1px solid var(--hairline);
 }
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+  .lp-bio-stats { grid-template-columns: repeat(2, 1fr); gap: 24px 20px; }
+}
+@media (max-width: 380px) {
   .lp-bio-stats { grid-template-columns: 1fr; gap: 20px; }
 }
 .lp-stat {
