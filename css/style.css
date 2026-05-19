@@ -114,35 +114,54 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   gap: 24px;
 }
 
+/* ====== LOGO (allineato al brand kit) ====== */
 .logo {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-decoration: none;
   line-height: 1;
-  letter-spacing: 0;
-  z-index: 102;
-  position: relative;
 }
+
 .logo-name {
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 1.6vw, 1.55rem);
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   font-weight: 500;
-  color: var(--deep-space-blue);
+  font-size: 24px;
   letter-spacing: 0.08em;
-  line-height: 1;
   text-transform: uppercase;
+  color: var(--deep-space-blue);
+  line-height: 1;
 }
+
 .logo-role {
-  font-family: var(--font-body);
-  font-size: 9px;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 500;
-  letter-spacing: 0.22em;
-  color: var(--deep-crimson);
+  font-size: 10px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin-top: 5px;
-  line-height: 1;
+  color: var(--deep-crimson);
+  line-height: 1.2;
 }
-@media (max-width: 620px) {
-  .logo-role { font-size: 8px; letter-spacing: 0.18em; }
+
+/* Logo nel footer (su sfondo scuro) */
+.footer .logo-name {
+  color: var(--platinum);
+}
+.footer .logo-role {
+  color: var(--firebrick-red);
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+  .logo-name {
+    font-size: 19px;
+    letter-spacing: 0.06em;
+  }
+  .logo-role {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+  }
 }
 
 .nav-links {
