@@ -119,7 +119,7 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   text-decoration: none;
   line-height: 1;
 }
@@ -127,7 +127,7 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
 .logo-name {
   font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 28px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--deep-space-blue);
@@ -137,14 +137,14 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
 .logo-role {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 500;
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 9px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--deep-crimson);
   line-height: 1.2;
 }
 
-/* Logo nel footer (su sfondo scuro) */
+/* Versione footer (sfondo scuro) */
 .footer .logo-name {
   color: var(--platinum);
 }
@@ -152,15 +152,15 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   color: var(--firebrick-red);
 }
 
-/* Responsive mobile */
+/* Mobile */
 @media (max-width: 600px) {
   .logo-name {
-    font-size: 19px;
+    font-size: 22px;
     letter-spacing: 0.06em;
   }
   .logo-role {
-    font-size: 9px;
-    letter-spacing: 0.15em;
+    font-size: 8px;
+    letter-spacing: 0.18em;
   }
 }
 
