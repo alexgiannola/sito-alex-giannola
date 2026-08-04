@@ -59,7 +59,7 @@
 
 <!-- HERO -->
 <section class="calc-page-hero">
-  <div class="container">
+  <div class="container-narrow">
     <span class="eyebrow reveal">Calcolatori</span>
     <h1 class="reveal">Tre strumenti,<br>per capire prima di <mark>decidere</mark>.</h1>
     <p class="lead reveal" style="max-width: 62ch; margin-top: 18px;">Nessuna promessa di rendimento. Solo matematica: come funziona l'interesse composto, quanto pesano davvero i costi, cosa cambia tra i diversi modelli di consulenza.</p>
@@ -68,7 +68,7 @@
 
 <!-- CALCOLATORE 1: INTERESSE COMPOSTO VS SEMPLICE -->
 <section class="calc-section" id="composto">
-  <div class="container">
+  <div class="container-narrow">
     <div class="calc-head reveal">
       <span class="eyebrow">Calcolatore 1</span>
       <h2>Interesse composto<br><em>vs.</em> interesse semplice.</h2>
@@ -102,7 +102,7 @@
       </form>
 
       <div class="calc-chart-wrap">
-        <svg id="chart-composto" viewBox="0 0 600 320" class="calc-chart" preserveAspectRatio="none"></svg>
+        <svg id="chart-composto" viewBox="0 0 600 240" class="calc-chart" preserveAspectRatio="none"></svg>
         <div class="calc-chart-legend">
           <div class="legend-item"><span class="legend-dot legend-compound"></span> Interesse composto</div>
           <div class="legend-item"><span class="legend-dot legend-simple"></span> Interesse semplice</div>
@@ -131,7 +131,7 @@
 
 <!-- CALCOLATORE 2: IMPATTO COSTI -->
 <section class="calc-section bg-dark" id="costi">
-  <div class="container">
+  <div class="container-narrow">
     <div class="calc-head reveal">
       <span class="eyebrow">Calcolatore 2</span>
       <h2>Quanto ti costano<br>davvero i costi.</h2>
@@ -204,11 +204,12 @@
 
 <!-- CALCOLATORE 3: BANCA VS INDIPENDENTE VS FEE-ONLY -->
 <section class="calc-section" id="confronto">
-  <div class="container">
+  <div class="container-narrow">
     <div class="calc-head reveal">
       <span class="eyebrow">Calcolatore 3</span>
       <h2>In banca, con un indipendente,<br>o con un fee-only.</h2>
       <p class="lead">Stesso rendimento di mercato ipotizzato per tutti e tre gli scenari. Cambiano solo i costi. Non è una promessa di performance migliore: è quello che restano nel tuo conto dopo i costi.</p>
+      <p class="calc-assumption-note">Rendimento lordo ipotizzato: <strong>10% annuo</strong>, media storica di lungo periodo di un indice azionario globale — <a href="#note-metodologiche">dettagli e fonti nel disclaimer sotto</a>.</p>
     </div>
 
     <div class="calc-shell reveal">
@@ -263,7 +264,7 @@
         <article class="result-card result-advisor">
           <div class="result-head">
             <span class="result-dot"></span>
-            <div class="result-label">Altro consulente indipendente <small>(costi 1%)</small></div>
+            <div class="result-label">Consulente "indipendente" di rete <small>(costi 1,5%)</small></div>
           </div>
           <div class="result-value" id="c3-result-advisor">€0</div>
           <div class="result-gain" id="c3-gain-advisor">···</div>
@@ -284,13 +285,14 @@
 </section>
 
 <!-- DISCLAIMER GENERALE -->
-<section class="calc-disclaimer-section">
+<section class="calc-disclaimer-section" id="note-metodologiche">
   <div class="container-narrow">
     <div class="calc-disclaimer-box reveal">
       <h3>Nota metodologica e disclaimer</h3>
       <p><strong>Cosa sono questi calcolatori.</strong> Strumenti didattici per illustrare due meccanismi: l'effetto del compounding nel tempo, e l'impatto dei costi sul capitale finale. Non sono proiezioni di investimento, non sono consulenza finanziaria personalizzata, e non costituiscono un'offerta.</p>
-      <p><strong>Sulle assunzioni di rendimento.</strong> Il 7% lordo annuo usato come base nei calcolatori 2 e 3 è un'ipotesi illustrativa, coerente con la media storica di lungo periodo di un portafoglio bilanciato globale (fonti indicative: rapporti ESMA, Credit Suisse Global Investment Returns Yearbook). Non è una previsione, non è garantito, e i rendimenti passati non sono indicativi di quelli futuri. Puoi modificarlo tu stesso nel calcolatore 2 per testare altri scenari.</p>
-      <p><strong>Sui costi.</strong> Le percentuali di costo per "in banca" (2,5%) e "altro consulente indipendente" (1%) sono stime indicative basate su dati medi di settore (ESMA Annual Statistical Report on Performance and Costs, Consob Report Investimenti Famiglie Italiane, Mediobanca Indagine Fondi Comuni), non sui costi di un prodotto o consulente specifico. I costi reali variano caso per caso.</p>
+      <p><strong>Sull'assunzione di rendimento nel calcolatore 2.</strong> Il 7% lordo annuo è un'ipotesi illustrativa, coerente con la media storica di lungo periodo di un portafoglio bilanciato globale (fonti indicative: rapporti ESMA, Credit Suisse Global Investment Returns Yearbook). Non è una previsione, non è garantito, e i rendimenti passati non sono indicativi di quelli futuri. Puoi modificarlo tu stesso nel calcolatore per testare altri scenari.</p>
+      <p><strong>Sull'assunzione di rendimento nel calcolatore 3.</strong> Il 10% lordo annuo riflette la media storica nominale di lungo periodo di un indice azionario globale (es. MSCI World, S&P 500 su orizzonti di 20-30+ anni), scenario coerente con un portafoglio a prevalenza azionaria su orizzonti lunghi con versamenti periodici. È un'assunzione più alta di quella usata nel calcolatore 2 perché descrive un profilo diverso (azionario puro vs bilanciato), non perché uno scenario sia "più probabile" o "consigliato" rispetto all'altro. Anche qui: non è una previsione né una garanzia, i rendimenti reali variano di anno in anno e possono essere anche negativi per periodi prolungati.</p>
+      <p><strong>Sui costi.</strong> Le percentuali di costo per "in banca" (2,5%) e "consulente 'indipendente' di rete" (1,5%) sono stime indicative basate su dati medi di settore (ESMA Annual Statistical Report on Performance and Costs, Consob Report Investimenti Famiglie Italiane, Mediobanca Indagine Fondi Comuni), non sui costi di un prodotto o consulente specifico. I costi reali variano caso per caso.</p>
       <p><strong>Sui tre scenari del calcolatore 3.</strong> Il confronto isola l'effetto dei costi a parità di rendimento lordo ipotizzato: nessuno dei tre scenari presuppone una capacità superiore di generare rendimento. La differenza nei risultati deriva esclusivamente dalla struttura dei costi.</p>
       <p><strong>Cosa non viene considerato.</strong> Le simulazioni non tengono conto di fiscalità, inflazione, o della sequenza reale dei rendimenti di mercato (che in realtà non è mai costante anno su anno). Sono semplificazioni a scopo esplicativo.</p>
       <p>Se stai valutando una decisione di investimento reale, parliamone: <a href="index.html#contatti">scrivimi</a> prima di agire sulla base di queste simulazioni.</p>
