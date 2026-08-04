@@ -3,21 +3,23 @@
    ============================================================ */
 
 .calc-page-hero {
-  padding: 110px 0 44px;
+  padding: 100px 0 32px;
 }
 @media (max-width: 900px) {
-  .calc-page-hero { padding: 90px 0 30px; }
+  .calc-page-hero { padding: 84px 0 24px; }
 }
 .calc-page-hero h1 {
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  margin-top: 14px;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  margin-top: 10px;
+  line-height: 1.15;
 }
+.calc-page-hero .lead { font-size: 15px; }
 
-.calc-section { padding: clamp(44px, 5vw, 64px) 0; border-top: 1px solid var(--hairline); }
+.calc-section { padding: clamp(32px, 4vw, 48px) 0; border-top: 1px solid var(--hairline); }
 .calc-section.bg-dark { border-top: none; border-bottom: 1px solid rgba(240,237,238,0.1); }
 
-.calc-head { max-width: 640px; margin-bottom: 32px; }
-.calc-head h2 { margin-top: 10px; margin-bottom: 12px; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+.calc-head { max-width: 600px; margin-bottom: 24px; }
+.calc-head h2 { margin-top: 8px; margin-bottom: 10px; font-size: clamp(1.35rem, 2.6vw, 1.9rem); line-height: 1.15; }
 .calc-head h2 em { font-style: italic; color: var(--deep-crimson); font-weight: 400; }
 .bg-dark .calc-head h2 em { color: var(--firebrick-red); }
 .calc-head .lead { font-size: 15px; }
@@ -112,9 +114,15 @@
   font-weight: 500;
   color: var(--ink-soft);
   background: white;
+  padding: 0 10px;
+  text-align: center;
   transition: all 0.2s;
 }
+.freq-btn:not(:first-child) {
+  border-left: 1px solid var(--hairline-strong);
+}
 .freq-btn.active { background: var(--deep-space-blue); color: var(--platinum); }
+.freq-btn.active:not(:first-child) { border-left-color: var(--deep-space-blue); }
 
 .calc-btn { height: 42px; padding: 0 22px; font-size: 14px; white-space: nowrap; }
 
@@ -175,11 +183,11 @@
 .result-mini-highlight .result-mini-value { color: var(--firebrick-red); }
 
 .calc-note {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--ink-muted);
   font-weight: 300;
-  line-height: 1.6;
-  max-width: 68ch;
+  line-height: 1.5;
+  max-width: 62ch;
 }
 
 /* CALCOLATORE COSTI (2) */
@@ -284,24 +292,24 @@
 }
 
 /* DISCLAIMER */
-.calc-disclaimer-section { padding: 40px 0 64px; }
+.calc-disclaimer-section { padding: 28px 0 48px; }
 .calc-disclaimer-box {
   background: var(--linen, #ECE9E3);
   border-left: 3px solid var(--deep-crimson);
   border-radius: 4px;
-  padding: 24px 26px;
+  padding: 20px 22px;
 }
 .calc-disclaimer-box h3 {
-  font-size: 1rem;
-  margin-bottom: 14px;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
   color: var(--deep-space-blue);
 }
 .calc-disclaimer-box p {
-  font-size: 12.5px;
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 1.5;
   color: var(--ink-soft);
   font-weight: 300;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   max-width: none;
 }
 .calc-disclaimer-box p:last-child { margin-bottom: 0; }
