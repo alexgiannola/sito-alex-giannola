@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcolatori | Alex Giannola, Consulente Finanziario Indipendente</title>
+<meta name="description" content="Tre calcolatori gratuiti: interesse composto vs semplice, impatto dei costi sul tuo portafoglio, confronto tra banca, consulente indipendente e fee-only.">
+<meta name="author" content="Alex Giannola">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calcolatori | Alex Giannola">
+<meta property="og:description" content="Interesse composto, impatto dei costi, confronto banca vs indipendente. Tre calcolatori gratuiti.">
+<meta property="og:url" content="https://alexgiannola.it/calcolatori.html">
+<meta property="og:image" content="https://alexgiannola.it/assets/alex.jpg">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Alex Giannola">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calcolatori | Alex Giannola">
+<meta name="twitter:image" content="https://alexgiannola.it/assets/alex.jpg">
+
+<link rel="canonical" href="https://alexgiannola.it/calcolatori.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calcolatori.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<meta name="theme-color" content="#003459">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Alex Giannola - Consulente Finanziario Indipendente">
+      <span class="logo-name">Alex Giannola</span>
+      <span class="logo-role">Consulente Finanziario Indipendente</span>
+    </a>
+    <ul class="nav-links nav-links-minimal">
+      <li><a href="chi-sono.html">Chi sono</a></li>
+      <li><a href="index.html#differenza">Indipendente vs. Banca</a></li>
+      <li><a href="index.html#metodo">Metodo</a></li>
+      <li><a href="calcolatori.html">Calcolatori</a></li>
+      <li><a href="index.html#risorse">Risorse gratuite</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="calc-page-hero">
+  <div class="container">
+    <span class="eyebrow reveal">Calcolatori</span>
+    <h1 class="reveal">Tre strumenti,<br>per capire prima di <mark>decidere</mark>.</h1>
+    <p class="lead reveal" style="max-width: 62ch; margin-top: 18px;">Nessuna promessa di rendimento. Solo matematica: come funziona l'interesse composto, quanto pesano davvero i costi, cosa cambia tra i diversi modelli di consulenza.</p>
+  </div>
+</section>
+
+<!-- CALCOLATORE 1: INTERESSE COMPOSTO VS SEMPLICE -->
+<section class="calc-section" id="composto">
+  <div class="container">
+    <div class="calc-head reveal">
+      <span class="eyebrow">Calcolatore 1</span>
+      <h2>Interesse composto<br><em>vs.</em> interesse semplice.</h2>
+      <p class="lead">La differenza sembra piccola all'inizio. Con il tempo, diventa enorme. Questo è l'unico motivo per cui iniziare presto conta più di quasi tutto il resto.</p>
+    </div>
+
+    <div class="calc-shell reveal">
+      <form class="calc-form calc-form-compact" id="form-composto">
+        <div class="calc-field">
+          <label for="c1-capital">Capitale iniziale</label>
+          <div class="calc-input-wrap">
+            <span class="calc-prefix">€</span>
+            <input type="text" id="c1-capital" value="10000" inputmode="numeric" autocomplete="off">
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="c1-rate">Rendimento annuo</label>
+          <div class="calc-input-wrap">
+            <input type="number" id="c1-rate" value="6" min="0.1" max="20" step="0.1">
+            <span class="calc-suffix">%</span>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="c1-years">Anni</label>
+          <div class="calc-input-wrap">
+            <input type="number" id="c1-years" value="20" min="1" max="40" step="1">
+            <span class="calc-suffix">anni</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary calc-btn">Calcola <span class="arrow">→</span></button>
+      </form>
+
+      <div class="calc-chart-wrap">
+        <svg id="chart-composto" viewBox="0 0 600 320" class="calc-chart" preserveAspectRatio="none"></svg>
+        <div class="calc-chart-legend">
+          <div class="legend-item"><span class="legend-dot legend-compound"></span> Interesse composto</div>
+          <div class="legend-item"><span class="legend-dot legend-simple"></span> Interesse semplice</div>
+        </div>
+      </div>
+
+      <div class="calc-results-row">
+        <article class="result-mini">
+          <div class="result-mini-label">Con interesse composto</div>
+          <div class="result-mini-value" id="c1-result-compound">€0</div>
+        </article>
+        <article class="result-mini">
+          <div class="result-mini-label">Con interesse semplice</div>
+          <div class="result-mini-value" id="c1-result-simple">€0</div>
+        </article>
+        <article class="result-mini result-mini-highlight">
+          <div class="result-mini-label">Differenza generata dal compounding</div>
+          <div class="result-mini-value" id="c1-result-diff">€0</div>
+        </article>
+      </div>
+
+      <p class="calc-note">Simulazione senza versamenti periodici, per isolare l'effetto puro del compounding. L'interesse semplice qui è un concetto teorico di confronto: nella pratica reale degli investimenti si lavora sempre con interesse composto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALCOLATORE 2: IMPATTO COSTI -->
+<section class="calc-section bg-dark" id="costi">
+  <div class="container">
+    <div class="calc-head reveal">
+      <span class="eyebrow">Calcolatore 2</span>
+      <h2>Quanto ti costano<br>davvero i costi.</h2>
+      <p class="lead" style="color: rgba(240,237,238,0.75);">Un punto percentuale di costo in più non sembra molto. Su 10 e 20 anni, capitalizzato, è una parte enorme del tuo patrimonio finale.</p>
+    </div>
+
+    <div class="calc-shell calc-shell-dark reveal">
+      <form class="calc-form calc-form-compact" id="form-costi">
+        <div class="calc-field">
+          <label for="c2-capital">Capitale da investire</label>
+          <div class="calc-input-wrap">
+            <span class="calc-prefix">€</span>
+            <input type="text" id="c2-capital" value="50000" inputmode="numeric" autocomplete="off">
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="c2-cost">Costo annuo del tuo portafoglio</label>
+          <div class="calc-input-wrap">
+            <input type="number" id="c2-cost" value="2" min="0.1" max="10" step="0.1">
+            <span class="calc-suffix">%</span>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="c2-return">Rendimento lordo di mercato assunto</label>
+          <div class="calc-input-wrap">
+            <input type="number" id="c2-return" value="7" min="1" max="12" step="0.5">
+            <span class="calc-suffix">%</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary calc-btn">Calcola <span class="arrow">→</span></button>
+      </form>
+
+      <div class="calc-costi-results">
+        <div class="calc-costi-col">
+          <div class="calc-costi-period">10 anni</div>
+          <div class="calc-costi-row">
+            <span>Il tuo portafoglio</span>
+            <strong id="c2-yours-10">€0</strong>
+          </div>
+          <div class="calc-costi-row">
+            <span>Portafoglio a basso costo (0,2%)</span>
+            <strong id="c2-low-10">€0</strong>
+          </div>
+          <div class="calc-costi-row calc-costi-loss">
+            <span>Quanto hai lasciato in costi</span>
+            <strong id="c2-loss-10">€0</strong>
+          </div>
+        </div>
+        <div class="calc-costi-col">
+          <div class="calc-costi-period">20 anni</div>
+          <div class="calc-costi-row">
+            <span>Il tuo portafoglio</span>
+            <strong id="c2-yours-20">€0</strong>
+          </div>
+          <div class="calc-costi-row">
+            <span>Portafoglio a basso costo (0,2%)</span>
+            <strong id="c2-low-20">€0</strong>
+          </div>
+          <div class="calc-costi-row calc-costi-loss">
+            <span>Quanto hai lasciato in costi</span>
+            <strong id="c2-loss-20">€0</strong>
+          </div>
+        </div>
+      </div>
+
+      <p class="calc-note" style="color: rgba(240,237,238,0.55);">Il confronto isola l'effetto dei costi a parità di rendimento lordo di mercato: entrambi gli scenari partono dallo stesso rendimento lordo, cambia solo quanto ne viene eroso dai costi. Lo 0,2% è indicativo di un portafoglio in ETF a basso costo, non una promessa di risultato.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALCOLATORE 3: BANCA VS INDIPENDENTE VS FEE-ONLY -->
+<section class="calc-section" id="confronto">
+  <div class="container">
+    <div class="calc-head reveal">
+      <span class="eyebrow">Calcolatore 3</span>
+      <h2>In banca, con un indipendente,<br>o con un fee-only.</h2>
+      <p class="lead">Stesso rendimento di mercato ipotizzato per tutti e tre gli scenari. Cambiano solo i costi. Non è una promessa di performance migliore: è quello che restano nel tuo conto dopo i costi.</p>
+    </div>
+
+    <div class="calc-shell reveal">
+      <form class="calc-form" id="form-confronto">
+
+        <div class="calc-field">
+          <label for="c3-start">Capitale iniziale</label>
+          <div class="calc-input-wrap">
+            <span class="calc-prefix">€</span>
+            <input type="text" id="c3-start" value="100000" inputmode="numeric" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label for="c3-invest">Versamento periodico <small>(può essere 0)</small></label>
+          <div class="calc-input-wrap">
+            <span class="calc-prefix">€</span>
+            <input type="text" id="c3-invest" value="500" inputmode="numeric" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label>Frequenza versamento</label>
+          <div class="freq-toggle">
+            <button type="button" class="freq-btn active" data-freq="monthly">Mensile</button>
+            <button type="button" class="freq-btn" data-freq="semestral">Semestrale</button>
+            <button type="button" class="freq-btn" data-freq="annual">Annuale</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label for="c3-years">Anni di investimento</label>
+          <div class="calc-input-wrap">
+            <input type="number" id="c3-years" value="15" min="1" max="50" step="1">
+            <span class="calc-suffix">anni</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary calc-btn">Calcola ora <span class="arrow">→</span></button>
+      </form>
+
+      <div class="calc-results calc-results-visible">
+        <article class="result-card result-bank">
+          <div class="result-head">
+            <span class="result-dot"></span>
+            <div class="result-label">In banca <small>(costi 2,5%)</small></div>
+          </div>
+          <div class="result-value" id="c3-result-bank">€0</div>
+          <div class="result-gain" id="c3-gain-bank">···</div>
+        </article>
+
+        <article class="result-card result-advisor">
+          <div class="result-head">
+            <span class="result-dot"></span>
+            <div class="result-label">Altro consulente indipendente <small>(costi 1%)</small></div>
+          </div>
+          <div class="result-value" id="c3-result-advisor">€0</div>
+          <div class="result-gain" id="c3-gain-advisor">···</div>
+        </article>
+
+        <article class="result-card result-strategy">
+          <div class="result-badge">Fee-only, con me</div>
+          <div class="result-head">
+            <span class="result-dot"></span>
+            <div class="result-label">Con me <small>(parcella 0,80%)</small></div>
+          </div>
+          <div class="result-value" id="c3-result-fee">€0</div>
+          <div class="result-gain" id="c3-gain-fee">···</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER GENERALE -->
+<section class="calc-disclaimer-section">
+  <div class="container-narrow">
+    <div class="calc-disclaimer-box reveal">
+      <h3>Nota metodologica e disclaimer</h3>
+      <p><strong>Cosa sono questi calcolatori.</strong> Strumenti didattici per illustrare due meccanismi: l'effetto del compounding nel tempo, e l'impatto dei costi sul capitale finale. Non sono proiezioni di investimento, non sono consulenza finanziaria personalizzata, e non costituiscono un'offerta.</p>
+      <p><strong>Sulle assunzioni di rendimento.</strong> Il 7% lordo annuo usato come base nei calcolatori 2 e 3 è un'ipotesi illustrativa, coerente con la media storica di lungo periodo di un portafoglio bilanciato globale (fonti indicative: rapporti ESMA, Credit Suisse Global Investment Returns Yearbook). Non è una previsione, non è garantito, e i rendimenti passati non sono indicativi di quelli futuri. Puoi modificarlo tu stesso nel calcolatore 2 per testare altri scenari.</p>
+      <p><strong>Sui costi.</strong> Le percentuali di costo per "in banca" (2,5%) e "altro consulente indipendente" (1%) sono stime indicative basate su dati medi di settore (ESMA Annual Statistical Report on Performance and Costs, Consob Report Investimenti Famiglie Italiane, Mediobanca Indagine Fondi Comuni), non sui costi di un prodotto o consulente specifico. I costi reali variano caso per caso.</p>
+      <p><strong>Sui tre scenari del calcolatore 3.</strong> Il confronto isola l'effetto dei costi a parità di rendimento lordo ipotizzato: nessuno dei tre scenari presuppone una capacità superiore di generare rendimento. La differenza nei risultati deriva esclusivamente dalla struttura dei costi.</p>
+      <p><strong>Cosa non viene considerato.</strong> Le simulazioni non tengono conto di fiscalità, inflazione, o della sequenza reale dei rendimenti di mercato (che in realtà non è mai costante anno su anno). Sono semplificazioni a scopo esplicativo.</p>
+      <p>Se stai valutando una decisione di investimento reale, parliamone: <a href="index.html#contatti">scrivimi</a> prima di agire sulla base di queste simulazioni.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer footer-minimal">
+  <div class="container">
+    <div class="footer-min-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-name">Alex Giannola</span>
+          <span class="logo-role">Consulente Finanziario Indipendente</span>
+        </div>
+      </div>
+      <div class="footer-min-links">
+        <a href="https://www.youtube.com/@AlexGiannola" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/alexgiannola_finance" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://substack.com/@alexgiannola" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.linkedin.com/in/alexgiannola" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:alex.giannola@gmail.com">Email</a>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <a href="#">Informativa precontrattuale</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="#">Informativa ESG</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="#">Informativa ACF</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="#">Privacy e Cookies</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="https://www.exevior.it/whistleblowing" target="_blank" rel="noopener">Whistleblowing</a>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Alex Giannola, Consulente Finanziario Indipendente. P.IVA 07262170827</div>
+      <div>Delibera dell'Organismo (OCF) n. 1857 del 22 febbraio 2022</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/calcolatori.js"></script>
+</body>
+</html>
