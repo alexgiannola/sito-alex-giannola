@@ -928,3 +928,194 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
 @media (max-width: 600px) {
   .footer-min-grid { flex-direction: column; align-items: flex-start; }
 }
+
+/* FOOTER LEGAL / COMPLIANCE LINKS */
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  font-size: 12px;
+}
+.footer-legal a {
+  color: var(--platinum);
+  opacity: 0.55;
+  transition: opacity 0.2s, color 0.2s;
+}
+.footer-legal a:hover {
+  opacity: 1;
+  color: var(--firebrick-red);
+}
+.footer-legal-sep {
+  opacity: 0.3;
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .footer-legal-sep { display: none; }
+}
+
+/* ============================================================
+   INDIPENDENTE VS BANCA (lp-differenza)
+   ============================================================ */
+.lp-differenza { padding: clamp(70px, 8vw, 110px) 0; }
+.lp-differenza .section-head { max-width: 780px; margin-bottom: 50px; }
+
+/* Tabella desktop */
+.lp-compare-table {
+  border: 1px solid rgba(240, 237, 238, 0.14);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.lp-compare-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  border-bottom: 1px solid rgba(240, 237, 238, 0.1);
+}
+.lp-compare-row:last-child { border-bottom: none; }
+.lp-compare-header { background: rgba(240, 237, 238, 0.04); }
+.lp-compare-cell {
+  padding: 20px 24px;
+  font-size: 14px;
+  color: rgba(240, 237, 238, 0.82);
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+}
+.lp-compare-cell strong { color: var(--platinum); font-weight: 700; }
+.lp-compare-label {
+  font-size: 13px;
+  color: rgba(240, 237, 238, 0.55);
+  font-weight: 500;
+}
+.lp-compare-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lp-indep-tag { background: rgba(223, 41, 53, 0.15); color: var(--firebrick-red); }
+.lp-bank-tag { background: rgba(240, 237, 238, 0.1); color: rgba(240, 237, 238, 0.7); }
+
+@media (max-width: 780px) {
+  .lp-compare-table { display: none; }
+}
+
+/* Card mobile */
+.lp-compare-mobile { display: none; gap: 20px; margin-bottom: 30px; }
+@media (max-width: 780px) {
+  .lp-compare-mobile { display: grid; grid-template-columns: 1fr; }
+}
+.lp-compare-card {
+  background: rgba(240, 237, 238, 0.04);
+  border: 1px solid rgba(240, 237, 238, 0.1);
+  border-radius: 8px;
+  padding: 26px;
+}
+.lp-compare-list { margin-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+.lp-compare-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(240, 237, 238, 0.08);
+  font-size: 14px;
+}
+.lp-compare-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.lp-compare-list li span { font-size: 12px; color: rgba(240, 237, 238, 0.5); }
+.lp-compare-list li strong { color: var(--platinum); font-weight: 500; }
+
+.lp-table-footnote {
+  font-size: 13px;
+  color: rgba(240, 237, 238, 0.5);
+  font-weight: 300;
+  font-style: italic;
+  max-width: 68ch;
+}
+
+/* ============================================================
+   METODO (lp-metodo)
+   ============================================================ */
+.lp-metodo { padding: clamp(70px, 8vw, 110px) 0; }
+.lp-center { text-align: center; }
+.lp-center h2, .lp-center p { margin-left: auto; margin-right: auto; }
+
+.lp-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  margin-top: 50px;
+}
+@media (max-width: 780px) { .lp-method-grid { grid-template-columns: 1fr; } }
+.lp-method-card {
+  background: var(--platinum);
+  padding: 44px 40px;
+  transition: background 0.3s;
+}
+.lp-method-card:hover { background: #e8e3e0; }
+.lp-method-num {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--deep-crimson);
+  margin-bottom: 22px;
+}
+.lp-method-card h3 { margin-bottom: 14px; }
+.lp-method-card p {
+  color: var(--ink-soft);
+  font-weight: 300;
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* ============================================================
+   FILOSOFIA (lp-filosofia)
+   ============================================================ */
+.lp-filosofia { padding: clamp(70px, 8vw, 110px) 0; }
+.lp-philo-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(240, 237, 238, 0.12);
+  margin-top: 20px;
+}
+.lp-philo-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(240, 237, 238, 0.12);
+}
+.lp-philo-num {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--firebrick-red);
+  flex-shrink: 0;
+  min-width: 28px;
+}
+.lp-philo-list h3 {
+  color: var(--platinum);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  margin-bottom: 8px;
+}
+.lp-gt { color: var(--firebrick-red); font-weight: 400; }
+.lp-philo-list p {
+  color: rgba(240, 237, 238, 0.7);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .lp-philo-list li { flex-direction: column; gap: 8px; }
+}
