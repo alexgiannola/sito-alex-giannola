@@ -84,7 +84,7 @@ function animateValue(el, from, to, duration = 1000) {
   attachItalianFormatting(capitalInput);
 
   const SVG_NS = 'http://www.w3.org/2000/svg';
-  const W = 600, H = 320, PAD_L = 55, PAD_B = 34, PAD_T = 16, PAD_R = 16;
+  const W = 600, H = 240, PAD_L = 50, PAD_B = 30, PAD_T = 14, PAD_R = 14;
 
   function buildChart(principal, rate, years) {
     svg.innerHTML = '';
@@ -244,9 +244,9 @@ function animateValue(el, from, to, duration = 1000) {
   attachItalianFormatting(startInput);
   attachItalianFormatting(investInput);
 
-  const GROSS_RETURN = 0.07;
+  const GROSS_RETURN = 0.10;
   const COST_BANK = 0.025;
-  const COST_ADVISOR = 0.01;
+  const COST_ADVISOR = 0.015;
   const COST_FEE = 0.008;
 
   let frequency = 'monthly';
