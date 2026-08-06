@@ -76,7 +76,11 @@
       </a>
     </div>
 
-    <div class="ddm-reviews-grid">
+    <div class="ddm-reviews-scroll-wrap">
+      <button class="ddm-scroll-btn ddm-scroll-prev" aria-label="Recensione precedente" onclick="document.getElementById('ddm-reviews-row').scrollBy({left:-360,behavior:'smooth'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="ddm-reviews-row" id="ddm-reviews-row">
 
       <article class="ddm-review-card reveal">
         <div class="ddm-stars">★★★★★</div>
@@ -118,6 +122,10 @@
         <p class="ddm-review-text">Alex unisce competenza tecnica, professionalità e una rara capacità di mettere il cliente al centro. Ogni confronto è sempre chiaro, concreto e privo di inutili tecnicismi. Grazie alla sua trasparenza e al suo approccio metodico, oggi ho una visione molto più chiara dei miei obiettivi finanziari e del percorso per raggiungerli. È il tipo di consulente che tutti vorrebbero avere al proprio fianco.</p>
       </article>
 
+      </div>
+      <button class="ddm-scroll-btn ddm-scroll-next" aria-label="Recensione successiva" onclick="document.getElementById('ddm-reviews-row').scrollBy({left:360,behavior:'smooth'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
     </div>
   </div>
 </section>
