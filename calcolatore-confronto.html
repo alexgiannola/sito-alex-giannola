@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcolatore Banca vs Indipendente vs Fee-only | Alex Giannola</title>
+<meta name="description" content="Calcolatore gratuito: confronta il costo di banca, consulente di rete e consulenza fee-only sullo stesso capitale.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://alexgiannola.it/calcolatore-confronto.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calcolatore Banca vs Indipendente vs Fee-only | Alex Giannola">
+<meta property="og:description" content="Calcolatore gratuito: confronta il costo di banca, consulente di rete e consulenza fee-only sullo stesso capitale.">
+<meta property="og:url" content="https://alexgiannola.it/calcolatore-confronto.html">
+<meta property="og:image" content="https://alexgiannola.it/assets/alex.jpg">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Alex Giannola">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calcolatori.css">
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<meta name="theme-color" content="#003459">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Alex Giannola - Consulente Finanziario Indipendente">
+      <span class="logo-name">Alex Giannola</span>
+      <span class="logo-role">Consulente Finanziario Indipendente</span>
+    </a>
+    <button class="nav-toggle" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links nav-links-minimal">
+      <li><a href="chi-sono.html">Chi sono</a></li>
+      <li><a href="index.html#differenza">Indipendente vs. Banca</a></li>
+      <li><a href="index.html#metodo">Metodo</a></li>
+      <li><a href="calcolatori.html">Calcolatori</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="dicono-di-me.html">Dicono di me</a></li>
+      <li><a href="index.html#risorse">Risorse gratuite</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-narrow calc-back-wrap">
+  <a href="calcolatori.html" class="calc-back-link">← Tutti i calcolatori</a>
+</div>
+
+<section class="calc-section calc-section-single" id="confronto">
+  <div class="container-narrow">
+    <div class="calc-head reveal">
+      <span class="eyebrow">Calcolatore</span>
+      <h1>In banca, con un indipendente,<br>o con un fee-only.</h1>
+      <p class="lead">Stesso rendimento di mercato ipotizzato per tutti e tre gli scenari. Cambiano solo i costi. Non è una promessa di performance migliore: è quello che resta nel tuo conto dopo i costi.</p>
+      <p class="calc-assumption-note">Rendimento lordo ipotizzato: <strong>10% annuo</strong>, media storica di lungo periodo di un indice azionario globale — <a href="#note-metodologiche">dettagli e fonti nel disclaimer sotto</a>.</p>
+    </div>
+
+    <div class="calc-shell reveal">
+      <form class="calc-form" id="form-confronto">
+
+        <div class="calc-field">
+          <label for="c3-start">Capitale iniziale</label>
+          <div class="calc-input-wrap">
+            <span class="calc-prefix">€</span>
+            <input type="text" id="c3-start" value="100000" inputmode="numeric" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label for="c3-invest">Versamento periodico <small>(può essere 0)</small></label>
+          <div class="calc-input-wrap">
+            <span class="calc-prefix">€</span>
+            <input type="text" id="c3-invest" value="500" inputmode="numeric" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label>Frequenza versamento</label>
+          <div class="freq-toggle">
+            <button type="button" class="freq-btn active" data-freq="monthly">Mensile</button>
+            <button type="button" class="freq-btn" data-freq="semestral">Semestrale</button>
+            <button type="button" class="freq-btn" data-freq="annual">Annuale</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label for="c3-years">Anni di investimento</label>
+          <div class="calc-input-wrap">
+            <input type="number" id="c3-years" value="15" min="1" max="50" step="1">
+            <span class="calc-suffix">anni</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary calc-btn">Calcola ora <span class="arrow">→</span></button>
+      </form>
+
+      <div class="calc-results calc-results-visible">
+        <article class="result-card result-bank">
+          <div class="result-head">
+            <span class="result-dot"></span>
+            <div class="result-label">In banca</div>
+          </div>
+          <div class="result-value" id="c3-result-bank">€0</div>
+          <div class="result-gain" id="c3-gain-bank">···</div>
+        </article>
+
+        <article class="result-card result-advisor">
+          <div class="result-head">
+            <span class="result-dot"></span>
+            <div class="result-label">Consulente "indipendente" di rete</div>
+          </div>
+          <div class="result-value" id="c3-result-advisor">€0</div>
+          <div class="result-gain" id="c3-gain-advisor">···</div>
+        </article>
+
+        <article class="result-card result-strategy">
+          <div class="result-badge">Fee-only, con me</div>
+          <div class="result-head">
+            <span class="result-dot"></span>
+            <div class="result-label">Con me</div>
+          </div>
+          <div class="result-value" id="c3-result-fee">€0</div>
+          <div class="result-gain" id="c3-gain-fee">···</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calc-disclaimer-section" id="note-metodologiche">
+  <div class="container-narrow">
+    <div class="calc-disclaimer-box reveal">
+      <h3>Nota metodologica e disclaimer</h3>
+      <p><strong>Cos'è questo calcolatore.</strong> Uno strumento didattico per confrontare l'impatto dei costi tra tre canali di consulenza diversi. Non è una proiezione di investimento, non è consulenza finanziaria personalizzata, e non costituisce un'offerta.</p>
+      <p><strong>Sull'assunzione di rendimento.</strong> Il 10% lordo annuo riflette la media storica nominale di lungo periodo di un indice azionario globale (es. MSCI World, S&P 500 su orizzonti di 20-30+ anni), scenario coerente con un portafoglio a prevalenza azionaria su orizzonti lunghi con versamenti periodici. Non è una previsione né una garanzia: i rendimenti reali variano di anno in anno e possono essere anche negativi per periodi prolungati.</p>
+      <p><strong>Sui costi.</strong> Le percentuali di costo per "in banca" (2,5%) e "consulente 'indipendente' di rete" (1,5%) sono stime indicative basate su dati medi di settore (ESMA Annual Statistical Report on Performance and Costs, Consob Report Investimenti Famiglie Italiane, Mediobanca Indagine Fondi Comuni), non sui costi di un prodotto o consulente specifico. I costi reali variano caso per caso.</p>
+      <p><strong>Sui tre scenari.</strong> Il confronto isola l'effetto dei costi a parità di rendimento lordo ipotizzato: nessuno dei tre scenari presuppone una capacità superiore di generare rendimento. La differenza nei risultati deriva esclusivamente dalla struttura dei costi.</p>
+      <p>Le simulazioni non tengono conto di fiscalità, inflazione, o della sequenza reale dei rendimenti di mercato. Sono semplificazioni a scopo esplicativo.</p>
+      <p>Se stai valutando una decisione di investimento reale, parliamone: <a href="index.html#contatti">scrivimi</a> prima di agire sulla base di questa simulazione.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer footer-minimal">
+  <div class="container">
+    <div class="footer-min-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-name">Alex Giannola</span>
+          <span class="logo-role">Consulente Finanziario Indipendente</span>
+        </div>
+      </div>
+      <div class="footer-min-links">
+        <a href="https://www.youtube.com/@AlexGiannola" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/alexgiannola_finance" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://substack.com/@alexgiannola" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.linkedin.com/in/alexgiannola" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:alex.giannola@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <a href="informativa-precontrattuale.html">Informativa precontrattuale</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="informativa-esg.html">Informativa ESG</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="informativa-acf.html">Informativa ACF</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="privacy-cookie-policy.html">Privacy e Cookies</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="note-legali.html">Note Legali</a>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Alex Giannola, Consulente Finanziario Indipendente. P.IVA 07262170827</div>
+      <div>Delibera dell'Organismo (OCF) n. 1857 del 22 febbraio 2022</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/calcolatori.js"></script>
+</body>
+</html>

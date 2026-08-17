@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcolatore Impatto Costi | Alex Giannola</title>
+<meta name="description" content="Calcolatore gratuito: scopri quanto ti costano davvero le commissioni sul tuo portafoglio a 10 e 20 anni.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://alexgiannola.it/calcolatore-costi.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calcolatore Impatto Costi | Alex Giannola">
+<meta property="og:description" content="Calcolatore gratuito: scopri quanto ti costano davvero le commissioni sul tuo portafoglio a 10 e 20 anni.">
+<meta property="og:url" content="https://alexgiannola.it/calcolatore-costi.html">
+<meta property="og:image" content="https://alexgiannola.it/assets/alex.jpg">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Alex Giannola">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calcolatori.css">
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<meta name="theme-color" content="#003459">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Alex Giannola - Consulente Finanziario Indipendente">
+      <span class="logo-name">Alex Giannola</span>
+      <span class="logo-role">Consulente Finanziario Indipendente</span>
+    </a>
+    <button class="nav-toggle" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links nav-links-minimal">
+      <li><a href="chi-sono.html">Chi sono</a></li>
+      <li><a href="index.html#differenza">Indipendente vs. Banca</a></li>
+      <li><a href="index.html#metodo">Metodo</a></li>
+      <li><a href="calcolatori.html">Calcolatori</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="dicono-di-me.html">Dicono di me</a></li>
+      <li><a href="index.html#risorse">Risorse gratuite</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-narrow calc-back-wrap">
+  <a href="calcolatori.html" class="calc-back-link">← Tutti i calcolatori</a>
+</div>
+
+<section class="calc-section calc-section-single bg-dark" id="costi">
+  <div class="container-narrow">
+    <div class="calc-head reveal">
+      <span class="eyebrow">Calcolatore</span>
+      <h1>Quanto ti costano<br>davvero i costi.</h1>
+      <p class="lead" style="color: rgba(240,237,238,0.75);">Un punto percentuale di costo in più non sembra molto. Su 10 e 20 anni, capitalizzato, è una parte enorme del tuo patrimonio finale.</p>
+    </div>
+
+    <div class="calc-shell calc-shell-dark reveal">
+      <form class="calc-form calc-form-compact" id="form-costi">
+        <div class="calc-field">
+          <label for="c2-capital">Capitale da investire</label>
+          <div class="calc-input-wrap">
+            <span class="calc-prefix">€</span>
+            <input type="text" id="c2-capital" value="50000" inputmode="numeric" autocomplete="off">
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="c2-cost">Costo annuo del tuo portafoglio</label>
+          <div class="calc-input-wrap">
+            <input type="number" id="c2-cost" value="2" min="0.1" max="10" step="0.1">
+            <span class="calc-suffix">%</span>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="c2-return">Rendimento lordo di mercato assunto</label>
+          <div class="calc-input-wrap">
+            <input type="number" id="c2-return" value="7" min="1" max="12" step="0.5">
+            <span class="calc-suffix">%</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary calc-btn">Calcola <span class="arrow">→</span></button>
+      </form>
+
+      <div class="calc-costi-results">
+        <div class="calc-costi-col">
+          <div class="calc-costi-period">10 anni</div>
+          <div class="calc-costi-row">
+            <span>Il tuo portafoglio</span>
+            <strong id="c2-yours-10">€0</strong>
+          </div>
+          <div class="calc-costi-row">
+            <span>Portafoglio a basso costo (0,2%)</span>
+            <strong id="c2-low-10">€0</strong>
+          </div>
+          <div class="calc-costi-row calc-costi-loss">
+            <span>Quanto hai lasciato in costi</span>
+            <strong id="c2-loss-10">€0</strong>
+          </div>
+        </div>
+        <div class="calc-costi-col">
+          <div class="calc-costi-period">20 anni</div>
+          <div class="calc-costi-row">
+            <span>Il tuo portafoglio</span>
+            <strong id="c2-yours-20">€0</strong>
+          </div>
+          <div class="calc-costi-row">
+            <span>Portafoglio a basso costo (0,2%)</span>
+            <strong id="c2-low-20">€0</strong>
+          </div>
+          <div class="calc-costi-row calc-costi-loss">
+            <span>Quanto hai lasciato in costi</span>
+            <strong id="c2-loss-20">€0</strong>
+          </div>
+        </div>
+      </div>
+
+      <p class="calc-note" style="color: rgba(240,237,238,0.55);">Il confronto isola l'effetto dei costi a parità di rendimento lordo di mercato: entrambi gli scenari partono dallo stesso rendimento lordo, cambia solo quanto ne viene eroso dai costi. Lo 0,2% è indicativo di un portafoglio in ETF a basso costo, non una promessa di risultato.</p>
+    </div>
+  </div>
+</section>
+
+<section class="calc-disclaimer-section">
+  <div class="container-narrow">
+    <div class="calc-disclaimer-box reveal">
+      <h3>Nota metodologica e disclaimer</h3>
+      <p><strong>Cos'è questo calcolatore.</strong> Uno strumento didattico per illustrare l'impatto dei costi sul capitale finale. Non è una proiezione di investimento, non è consulenza finanziaria personalizzata, e non costituisce un'offerta.</p>
+      <p><strong>Sull'assunzione di rendimento.</strong> Il 7% lordo annuo di default è un'ipotesi illustrativa, coerente con la media storica di lungo periodo di un portafoglio bilanciato globale (fonti indicative: rapporti ESMA, Credit Suisse Global Investment Returns Yearbook). Non è una previsione né una garanzia. Puoi modificarlo tu stesso per testare altri scenari.</p>
+      <p>Le simulazioni non tengono conto di fiscalità, inflazione, o della sequenza reale dei rendimenti di mercato. Sono semplificazioni a scopo esplicativo.</p>
+      <p>Se stai valutando una decisione di investimento reale, parliamone: <a href="index.html#contatti">scrivimi</a> prima di agire sulla base di questa simulazione.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer footer-minimal">
+  <div class="container">
+    <div class="footer-min-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-name">Alex Giannola</span>
+          <span class="logo-role">Consulente Finanziario Indipendente</span>
+        </div>
+      </div>
+      <div class="footer-min-links">
+        <a href="https://www.youtube.com/@AlexGiannola" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/alexgiannola_finance" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://substack.com/@alexgiannola" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.linkedin.com/in/alexgiannola" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:alex.giannola@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <a href="informativa-precontrattuale.html">Informativa precontrattuale</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="informativa-esg.html">Informativa ESG</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="informativa-acf.html">Informativa ACF</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="privacy-cookie-policy.html">Privacy e Cookies</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="note-legali.html">Note Legali</a>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Alex Giannola, Consulente Finanziario Indipendente. P.IVA 07262170827</div>
+      <div>Delibera dell'Organismo (OCF) n. 1857 del 22 febbraio 2022</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/calcolatori.js"></script>
+</body>
+</html>
