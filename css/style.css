@@ -143,6 +143,17 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
   color: var(--deep-crimson);
   line-height: 1.2;
 }
+.logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 620px) {
+  .logo-img { height: 30px; }
+}
+.logo-img-footer {
+  height: 32px;
+}
 
 /* Versione footer (sfondo scuro) */
 .footer .logo-name {
