@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter | Alex Giannola, Consulente Finanziario Indipendente</title>
+<meta name="description" content="Meno rumore, più numeri. Informazioni sui mercati, consigli di finanza personale e news che possono impattare il tuo portafoglio, spiegate in parole semplici ma con dati e analisi.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://alexgiannola.it/newsletter.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Newsletter | Alex Giannola">
+<meta property="og:description" content="Meno rumore, più numeri. Mercati, finanza personale e news che impattano il tuo portafoglio, con dati e analisi.">
+<meta property="og:url" content="https://alexgiannola.it/newsletter.html">
+<meta property="og:image" content="https://alexgiannola.it/assets/alex.jpg">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Alex Giannola">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/newsletter.css">
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<meta name="theme-color" content="#003459">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Alex Giannola - Consulente Finanziario Indipendente">
+      <span class="logo-name">Alex Giannola</span>
+      <span class="logo-role">Consulente Finanziario Indipendente</span>
+    </a>
+    <button class="nav-toggle" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links nav-links-minimal">
+      <li><a href="chi-sono.html">Chi sono</a></li>
+      <li><a href="index.html#differenza">Indipendente vs. Banca</a></li>
+      <li><a href="index.html#metodo">Metodo</a></li>
+      <li><a href="calcolatori.html">Calcolatori</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="dicono-di-me.html">Dicono di me</a></li>
+      <li><a href="index.html#risorse">Risorse gratuite</a></li>
+      <li><a href="newsletter.html" class="cta-link">Newsletter</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="nl-hero">
+  <div class="nl-wrap">
+    <span class="eyebrow reveal">Newsletter</span>
+    <h1 class="reveal">Meno rumore.<br><em>Più numeri.</em></h1>
+    <p class="lead reveal">Ti mando informazioni sui mercati, consigli di finanza personale, news che possono impattare il tuo portafoglio e i tuoi investimenti, spiegati in parole semplici ma con dati e analisi.</p>
+  </div>
+</section>
+
+<!-- CONTENUTO -->
+<section class="nl-main">
+  <div class="nl-wrap">
+    <div class="nl-grid">
+
+      <!-- Colonna info -->
+      <div class="nl-info">
+        <h2 class="nl-info-title reveal">Cosa ricevi</h2>
+
+        <ul class="nl-benefits">
+          <li class="nl-benefit reveal">
+            <span class="nl-benefit-num">01</span>
+            <div>
+              <h3>Mercati, con i numeri</h3>
+              <p>Analisi e dati su cosa sta succedendo davvero, senza gergo inutile.</p>
+            </div>
+          </li>
+          <li class="nl-benefit reveal">
+            <span class="nl-benefit-num">02</span>
+            <div>
+              <h3>News che toccano il tuo portafoglio</h3>
+              <p>Quello che conta, e perché ti riguarda, in parole semplici.</p>
+            </div>
+          </li>
+          <li class="nl-benefit reveal">
+            <span class="nl-benefit-num">03</span>
+            <div>
+              <h3>Finanza personale e tips</h3>
+              <p>Consigli pratici per migliorare la tua finanza personale.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nl-transparency reveal">
+          <h3>Chi riceve cosa</h3>
+          <p>I clienti ricevono la newsletter completa ogni settimana. Gli iscritti non clienti ricevono contenuti informativi e, ogni tanto, un recap molto simile a quello dei clienti. Più tips, consigli e come migliorare la propria finanza personale.</p>
+        </div>
+      </div>
+
+      <!-- Colonna form -->
+      <div class="nl-card reveal">
+        <div id="nl-form-wrap">
+          <h2>Iscriviti alla newsletter</h2>
+          <p class="nl-card-sub">Iscrizione gratuita. Ci metti 20 secondi.</p>
+
+          <form id="nl-form" novalidate>
+            <div class="nl-row">
+              <div class="nl-field">
+                <label for="nl-nome">Nome *</label>
+                <input type="text" id="nl-nome" name="nome" autocomplete="given-name" required>
+              </div>
+              <div class="nl-field">
+                <label for="nl-cognome">Cognome *</label>
+                <input type="text" id="nl-cognome" name="cognome" autocomplete="family-name" required>
+              </div>
+            </div>
+
+            <div class="nl-field">
+              <label for="nl-email">Email *</label>
+              <input type="email" id="nl-email" name="email" autocomplete="email" inputmode="email" required>
+            </div>
+
+            <div class="nl-field">
+              <label for="nl-tel">Telefono <span class="nl-optional">(facoltativo)</span></label>
+              <input type="tel" id="nl-tel" name="telefono" autocomplete="tel" inputmode="tel">
+            </div>
+
+            <!-- Campo trappola anti-bot: deve restare vuoto -->
+            <div class="nl-hp" aria-hidden="true">
+              <label for="nl-company">Non compilare questo campo</label>
+              <input type="text" id="nl-company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+
+            <label class="nl-check" for="nl-privacy">
+              <input type="checkbox" id="nl-privacy" name="privacy" required>
+              <span>Ho letto l'<a href="privacy-cookie-policy.html" target="_blank" rel="noopener">informativa privacy</a> e acconsento al trattamento dei miei dati per ricevere la newsletter. *</span>
+            </label>
+
+            <p class="nl-error" id="nl-error" role="alert" aria-live="polite" hidden></p>
+
+            <button type="submit" class="btn btn-primary nl-submit" id="nl-submit">
+              <span class="nl-submit-label">Iscrivimi alla newsletter</span> <span class="arrow">→</span>
+            </button>
+
+            <p class="nl-fine">Puoi cancellarti in qualsiasi momento. I contenuti sono informativi e non costituiscono consulenza finanziaria personalizzata.</p>
+          </form>
+        </div>
+
+        <div class="nl-success" id="nl-success" hidden>
+          <div class="nl-success-icon">✓</div>
+          <h2>Iscrizione registrata.</h2>
+          <p>Grazie. Ti scriverò all'indirizzo email che hai indicato.</p>
+          <a href="blog.html" class="btn btn-secondary">Intanto leggi il blog <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer footer-minimal">
+  <div class="container">
+    <div class="footer-min-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-name">Alex Giannola</span>
+          <span class="logo-role">Consulente Finanziario Indipendente</span>
+        </div>
+      </div>
+      <div class="footer-min-links">
+        <a href="https://www.youtube.com/@AlexGiannola" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/alexgiannola_finance" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://substack.com/@alexgiannola" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.linkedin.com/in/alexgiannola" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:alex.giannola@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <a href="informativa-precontrattuale.html">Informativa precontrattuale</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="informativa-esg.html">Informativa ESG</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="informativa-acf.html">Informativa ACF</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="privacy-cookie-policy.html">Privacy e Cookies</a>
+      <span class="footer-legal-sep">|</span>
+      <a href="note-legali.html">Note Legali</a>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Alex Giannola, Consulente Finanziario Indipendente. P.IVA 07262170827</div>
+      <div>Delibera dell'Organismo (OCF) n. 1857 del 22 febbraio 2022</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  // Google Form "Newsletter Alex": i dati del form del sito arrivano al foglio collegato
+  var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSds0NkkdCZHBg5D1iLZzVSLNb3uPxXFsAaCjP3pARJPPQ2s_w/formResponse';
+  var ENTRY = {
+    nome:     'entry.25954243',
+    cognome:  'entry.1323528271',
+    email:    'entry.1948948198',
+    telefono: 'entry.1103148837'
+  };
+
+  var form = document.getElementById('nl-form');
+  if (!form) return;
+  var errorEl = document.getElementById('nl-error');
+  var submitBtn = document.getElementById('nl-submit');
+  var label = submitBtn.querySelector('.nl-submit-label');
+  var sending = false;
+
+  function showError(msg) {
+    errorEl.textContent = msg;
+    errorEl.hidden = false;
+  }
+  function clearError() {
+    errorEl.hidden = true;
+    errorEl.textContent = '';
+  }
+  function showSuccess() {
+    document.getElementById('nl-form-wrap').hidden = true;
+    document.getElementById('nl-success').hidden = false;
+    document.querySelector('.nl-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sending) return;
+    clearError();
+
+    var nome = form.nome.value.trim();
+    var cognome = form.cognome.value.trim();
+    var email = form.email.value.trim();
+    var telefono = form.telefono.value.trim();
+
+    if (!nome || !cognome || !email) {
+      showError('Compila nome, cognome ed email.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      showError('Controlla l\'indirizzo email, sembra non valido.');
+      return;
+    }
+    if (!form.privacy.checked) {
+      showError('Per iscriverti devi accettare l\'informativa privacy.');
+      return;
+    }
+
+    // Anti-bot: se il campo trappola è compilato, finge successo senza inviare nulla
+    if (form.company.value) { showSuccess(); return; }
+
+    var body = new URLSearchParams();
+    body.append(ENTRY.nome, nome);
+    body.append(ENTRY.cognome, cognome);
+    body.append(ENTRY.email, email);
+    body.append(ENTRY.telefono, telefono);
+
+    sending = true;
+    submitBtn.disabled = true;
+    label.textContent = 'Invio in corso...';
+
+    fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: body })
+      .then(function () { showSuccess(); })
+      .catch(function () {
+        sending = false;
+        submitBtn.disabled = false;
+        label.textContent = 'Iscrivimi alla newsletter';
+        showError('Non sono riuscito a registrare l\'iscrizione. Riprova tra un attimo, oppure scrivimi a alex.giannola@gmail.com.');
+      });
+  });
+})();
+</script>
+</body>
+</html>
