@@ -1130,3 +1130,4 @@ section { padding: clamp(60px, 7vw, 100px) 0; position: relative; }
 @media (max-width: 600px) {
   .lp-philo-list li { flex-direction: column; gap: 8px; }
 }
+.nav-links.nav-links-minimal a.cta-link { display: inline-flex; }
